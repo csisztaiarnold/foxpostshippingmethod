@@ -1,0 +1,33 @@
+<!--
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div id="parcelshop-modal" class="required" style="display: none;">
+    <iframe data-bind="attr: {src: iframeurl()}" class="mt-2 foxpost-iframe" title="foxpost"></iframe>
+    <div class="foxpost-telephone">
+        <label class="label" for="modal-phonenumber"><!-- ko i18n: 'Telephone number' --><!-- /ko --><span
+            class="reqiured" aria-hidden="true"> *</span></label>
+        <!--regex -->
+        <input type="tel" id="modal-phonenumber" name="modal-phonenumber">
+    </div>
+    <div id="modal-error-foxpost" class="error foxpost-modal-error"></div>
+</div>
+
+<!-- ko foreach: element.getRegion('additionalShippingOptionField') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<style>
+    .ppp {
+        width: 215%;
+        height: 585px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .ppp {
+            width: 100%;
+        }
+    }
+</style>

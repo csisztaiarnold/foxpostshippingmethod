@@ -1,0 +1,81 @@
+<?php
+/**
+ *    ____  _ _       _____  _
+ *   |  _ \(_) |     |  __ \| |
+ *   | |_) |_| |_ ___| |__) | | ___  __ _ ___  ___
+ *   |  _ <| | __/ __|  ___/| |/ _ \/ _` / __|/ _ \
+ *   | |_) | | |_\__ \ |    | |  __/ (_| \__ \  __/
+ *   |____/|_|\__|___/_|    |_|\___|\__,_|___/\___|
+ *
+ * Oander_FoxPostShippingMethod
+ *
+ * @author  Arnold Csisztai <arnold.csisztai@oander.hu>
+ * @license Oander Media Kft. (https://www.oander.hu)
+ *
+ */
+?>
+<?php /* @var $block \Oander\FoxPostShippingMethod\Block\Adminhtml\System\Config\Form\Field\Connection */ ?>
+<style type="text/css">
+    #foxpost_api_test_connection {
+        margin: 5px;
+        display: inline-block;
+    }
+
+    #foxpost_api_test_connection.error {
+        color: red;
+    }
+
+    #foxpost_api_test_connection.success {
+        color: green;
+    }
+</style>
+<script>
+    require([
+        'jquery',
+        'prototype',
+    ], function (jQuery) {
+
+        var testButton = jQuery('#foxpost_api_test_connection');
+        var connectionInfo = jQuery("<span id='foxpost_api_test_connection'></span>");
+
+        testConnection();
+
+        testButton.on('click', testConnection);
+
+        function testConnection() {
+            reset();
+            jQuery.ajax({
+                url: '<?php /* @escapeNotVerified */ echo $block->getAjaxTestUrl() ?>',
+                type: 'POST',
+                data: {
+                    form_key: window.FORM_KEY,
+                    'foxpost_api_auth_username': jQuery('#foxpost_api_settings_username').val(),
+                    'foxpost_api_auth_password': jQuery('#foxpost_api_settings_password').val(),
+                    'foxpost_api_api_key': jQuery('#foxpost_api_settings_api_key').val(),
+                },
+                showLoader: true
+            }).done(function (response) {
+                handleResponse(response)
+                window.is_load = false;
+            });
+        }
+
+        function handleResponse(response) {
+            connectionInfo.removeClass('success').removeClass('error');
+            if (response.success) {
+                connectionInfo.addClass('success');
+            } else {
+                connectionInfo.addClass('error');
+                jQuery('.messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">Couldn\'t retreive data from the Foxpost API, please check if the connection is working.</div></div>');
+            }
+            connectionInfo.html(response.message);
+            testButton.after(connectionInfo);
+        }
+
+        function reset() {
+            connectionInfo.remove();
+        }
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

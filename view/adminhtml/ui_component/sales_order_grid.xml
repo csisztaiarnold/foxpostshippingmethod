@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="fox_post_orders_csv_export">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">orders_csv_export</item>
+                        <item name="label" xsi:type="string" translate="true">Foxpost Parcel - export CSV</item>
+                        <item name="url" xsi:type="url" path="foxpost/order/csvExport"/>
+                    </item>
+                </argument>
+            </action>
+            <action name="mass_send_to_foxpost">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">mass_send_to_foxpost</item>
+                        <item name="label" xsi:type="string" translate="true">Send Orders to Foxpost</item>
+                        <item name="url" xsi:type="url" path="foxpost/order/massSend"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Send orders to Foxpost</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to send
+                                selected items to Foxpost?
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

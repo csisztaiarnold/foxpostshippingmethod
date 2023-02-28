@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var \Oander\FoxPostShippingMethod\Block\Adminhtml\Order\View\FoxPostAdminBlock $block */
+?>
+<?php
+if ($block->getShippingMethod() == "foxpost_foxpost"):
+    ?>
+    <section class="admin__page-section" id="foxpost-content">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('FoxPost Information')) ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <div id="foxpost-machine-name">
+                <strong><?= __('Machine Name') ?></strong>
+                <?php echo $block->getMachineName(); ?>
+            </div>
+            <div id="foxpost-machine-code">
+                <strong><?= __('Machine Code') ?></strong>
+                <?php echo $block->getMachineCode() ?>
+            </div>
+            <div id="foxpost-machine-address">
+                <strong><?= __('Machine Address') ?></strong>
+                <?php echo $block->getMachineAddress() ?>
+            </div>
+            <div id="foxpost-phone">
+                <strong><?= __('Phone') ?></strong>
+                <?php echo $block->getPhoneNumber() ?>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        require(
+            ['jquery'],
+            function ($) {
+                $('#foxpost-content').insertAfter($('.order-view-billing-shipping'));
+            }
+        );
+    </script>
+<?php
+endif;
+?>
+<?php if ($block->getLabelFilePath() !== null): ?>
+    <button><a href="<?php echo $block->getLabelFilePath(); ?>"><?php echo __('Download Foxpost Label'); ?></a></button>
+<?php endif; ?>

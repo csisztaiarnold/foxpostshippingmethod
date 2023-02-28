@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="foxpost" frontName="foxpost">
+            <module name="Oander_FoxPostShippingMethod" before="Magento_Backend"/>
+        </route>
+    </router>
+
+</config>

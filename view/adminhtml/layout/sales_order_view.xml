@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_info">
+            <block class="Oander\FoxPostShippingMethod\Block\Adminhtml\Order\View\FoxPostAdminBlock" name="sales_order_view_pickpackpont" template="order/view/foxpost.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

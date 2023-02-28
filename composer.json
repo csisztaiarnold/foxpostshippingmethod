@@ -1,0 +1,23 @@
+{
+  "name": "oander/module-foxpost-shipping-method",
+  "description": "Oander FoxPostShippingMethod",
+  "require": {
+    "php": ">=7.4",
+    "oander/module-base": "*",
+    "magento/product-community-edition": "^2.4.0"
+  },
+  "type": "magento2-module",
+  "version": "1.0.1",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Oander\\FoxPostShippingMethod\\": ""
+    }
+  }
+}

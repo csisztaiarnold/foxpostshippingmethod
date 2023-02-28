@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <foxpost>
+                <model>Oander\FoxPostShippingMethod\Model\Carrier\FoxPost</model>
+                <active>0</active>
+                <title>Foxpost Parcel Delivery</title>
+                <name>Foxpost Parcel Delivery</name>
+                <sallowspecific>0</sallowspecific>
+                <sort_order>15</sort_order>
+                <active_free_shipping_threshold>0</active_free_shipping_threshold>
+                <iframeurl>https://cdn.foxpost.hu/apt-finder/v1/app/</iframeurl>
+                <error_message>This shipping method is currently unavailable. If you would like to ship using this
+                    shipping method, please contact us.
+                </error_message>
+            </foxpost>
+        </carriers>
+    </default>
+</config>

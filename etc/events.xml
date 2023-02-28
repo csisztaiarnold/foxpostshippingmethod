@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright ©2023 Oander Media Kft. (https://www.oander.hu). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="oander_foxpost_quote_data_convert_to_order_data"
+                  instance="Oander\FoxPostShippingMethod\Observer\SaveFoxPostDataToOrder"/>
+    </event>
+    <event name="email_order_set_template_vars_before">
+        <observer name="oander_fox_post_add_variable_to_email_template"
+                  instance="Oander\FoxPostShippingMethod\Observer\AddVariableToEmailTemplate"/>
+    </event>
+    <event name="sales_convert_order_to_quote">
+        <observer name="oander_fox_post_quote_data_to_reorder"
+                  instance="Oander\FoxPostShippingMethod\Observer\SaveFoxPostDataToQuote"/>
+    </event>
+</config>
